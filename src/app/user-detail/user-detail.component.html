@@ -1,0 +1,19 @@
+<div *ngIf="user">
+
+    <h2>{{ user.login | uppercase }} Details</h2>
+    
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{user.avatar_url}}" alt="{{user.login}}">
+        <div class="card-body">
+          <p class="card-text">Lives in {{user.location}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Is of type: {{user.type}}</li>
+            <li class="list-group-item">Created on: {{user.created_at | date:'fullDate'}}</li>
+            <li class="list-group-item">Is site admin: 
+                <span *ngIf="user.site_admin">Yes</span>
+                <span *ngIf="!user.site_admin">No</span>
+            </li>
+          </ul>
+      </div>
+  </div>

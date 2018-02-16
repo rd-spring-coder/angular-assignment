@@ -1,0 +1,30 @@
+<div class="container">
+  <div>
+    <h2>Users</h2>
+    <ul>
+      <li *ngFor="let user of users"
+        [class.selected]="user === selectedUser"
+        (click)="onSelect(user)">
+          <div class="row">
+
+              <div class="col-md-4">
+                 <img src="{{user.avatar_url}}" alt="{{user.login}}" style="width:40%">
+                </div>
+              <!-- <div class="container"> -->
+              <div class="col-md-4"><h4><b>{{user.login}}</b></h4> </div>
+              <!-- </div> -->
+            
+            <div class="col-md-4" *ngIf="user===selectedUser">
+                <app-user-detail [user]="selectedUser"></app-user-detail>
+            </div>
+          </div>            
+      </li>
+    </ul>
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#" (click)="navigate('last')">Last</a></li>
+        </ul>
+      </nav> -->
+    <a (click)="navigateTo()" class="btn btn-link">More Items>>></a>
+  </div>
+</div>
